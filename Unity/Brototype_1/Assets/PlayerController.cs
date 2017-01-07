@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		float moveX = Input.GetAxis ("Horizontal");
 		float moveY = Input.GetAxis ("Vertical");
+		animator.SetFloat ("Speed", Mathf.Abs(moveX));
 		myRb.velocity = new Vector2 (moveX * maxSpeedX,moveY * maxSpeedY);
-
 		if (moveX > 0 && !facingRight) {
 			flip ();
 		} else if (moveX < 0 && facingRight) {
